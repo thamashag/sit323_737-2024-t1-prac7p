@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    image: sit323_737-2024-t1-prac5p:latest
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
